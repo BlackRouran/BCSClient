@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="./static/css/common.css">
+    <link rel="stylesheet" href="./static/css/mobiscroll/mobiscroll.css">
+    <link rel="stylesheet" href="./static/css/mobiscroll/mobiscroll_date.css">
+    <title>mh_vue</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <!-- <script src="static/js/zepto.min.js"></script> -->
+    <script src="./static/js/adapt.js"></script>
+    <script src="./static/js/MobileJS-1.0.6.js"></script>
+    <script src="./static/js/base64.js"></script>
+    <script src="./static/js/mobiscroll/jquery.min.js"></script>
+    <script src="./static/js/mobiscroll/mobiscroll_date.js" charset="utf-8"></script>
+    <script src="./static/js/mobiscroll/mobiscroll.js"></script>
+
+    <script>
+        var getUseroption = {
+            version: "1",
+            asyncData: "",
+            callback: function(param) {
+                try {
+                    var retObj = param;
+                    if (retObj.retCode < 0) {
+                        alert("错误信息：" + retObj.retMsg);
+                        return;
+                    } else {
+                        // alert(retObj.data.pathName);
+                        window.localStorage.setItem('pathName', retObj.data.pathName);
+                    }
+                } catch (err) {
+                    alert("回调错误，原因[" + err.message + "]");
+                    return;
+                }
+            }
+        };
+        MobileJS.getUserInfo(getUseroption);
+    </script>
+</body>
+
+</html>
