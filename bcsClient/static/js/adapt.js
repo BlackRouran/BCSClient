@@ -6,7 +6,7 @@
         var p = Number((_D.body && _D.body.clientWidth || _self.Html.offsetWidth) / 750).toFixed(3); //750为设计稿宽度
         return p > 1.067 ? 1.067 : p < 0.444 ? 0.444 : p; //计算最小最大值 分别是768/750  320/750 
     };
-
+    var test = 123;
     _self.changePage = function() {
         _self.Html.setAttribute("style", "height:100%;" + "font-size:" + _self.widthProportion() * 100 + "px");
         _self.correctPx();
@@ -24,7 +24,7 @@
         };
         var ideal = 140 * clientWidth / 750;
         var rmd = (div.clientWidth / ideal); //div的实际宽度 /理论的宽度
-        
+
         if (rmd > 1. || rmd < 0.9) { //阀值为.1 如果超出 就重新计算
             docEl.style.fontSize = 100 * (clientWidth / 750) / rmd + 'px';
             if (document.body) {
